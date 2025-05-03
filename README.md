@@ -69,14 +69,14 @@ play-verl/
 ## 📊 Experiment Results
 These experiments were run on 8×A100-80GB GPUs, evaluating PPO and GRPO with different rollout and TP settings. All models were trained using preprocessed GSM8K data via `examples/data_preprocess/gsm8k.py`.
 
-> 📝 Test scores are in progress and **WandB logs** are available in the [`wandb_logs/`](wandb_logs/) folder. Training logs are stored in [`logs/`](logs/) (e.g., `verl_qwen2_7b_min.log`). Scripts are located under [`examples/tuning/`](examples/tuning/).
+> 📝 Test scores are in progress and **WandB logs** are available at [wandb.ai/xianzhong/verl_qwen2_7b_gsm8k](https://wandb.ai/xianzhong/verl_qwen2_7b_gsm8k). Training logs are stored in [`logs/`](logs/) (e.g., `verl_qwen2_7b_min.log`). Scripts are located under [`examples/tuning/`](examples/tuning/).
 
-| Script | Model           | Algorithm | TP | Rollout.n | Dynamic BSZ | Token Len | Test Score | Script Name                            | Notes                                                              |
-|--------|------------------|-----------|----|-----------|-------------|-----------|------------|----------------------------------------|--------------------------------------------------------------------|
-| #1     | Qwen2.5-0.5B     | GRPO      | 1  | 2         | ✅           | 8000      | N/A        | `train_ppo_qwen2.5_0.5b_gpu1.sh`       | GRPO early test                                                    |
-| #2     | Qwen2.5-0.5B     | PPO       | 1  | 1         | ❌           | —         | N/A        | `train_ppo_qwen2.5_0.5b_gpu1.sh`       | PPO baseline                                                       |
-| #3     | Qwen2-7B         | PPO       | 1  | 2         | ✅           | 8192      | N/A        | `qwen2_7b_gsm8k_8gpu_min.sh`           | Balanced config                                                    |
-| #4     | Qwen2-7B         | PPO       | 2  | 5         | ✅           | 12000     | N/A        | `qwen2_7b_gsm8k_8gpu_recommended.sh`   | Best throughput, preferred                                         |
+| Script | Model           | Algorithm | TP | Rollout.n | Dynamic BSZ | Token Len | Test Score | Script Name                            | Throughput (tok/s) | Memory Use | WandB Link                                                                 | Notes                                                              |
+|--------|------------------|-----------|----|-----------|-------------|-----------|------------|----------------------------------------|---------------------|-------------|---------------------------------------------------------------------------|--------------------------------------------------------------------|
+| #1     | Qwen2.5-0.5B     | GRPO      | 1  | 2         | ✅           | 8000      | N/A        | `train_ppo_qwen2.5_0.5b_gpu1.sh`       | TBD                 | TBD         | [Run #1](https://wandb.ai/xianzhong/verl_qwen2_7b_gsm8k)                  | GRPO early test                                                    |
+| #2     | Qwen2.5-0.5B     | PPO       | 1  | 1         | ❌           | —         | N/A        | `train_ppo_qwen2.5_0.5b_gpu1.sh`       | TBD                 | TBD         | [Run #2](https://wandb.ai/xianzhong/verl_qwen2_7b_gsm8k)                  | PPO baseline                                                       |
+| #3     | Qwen2-7B         | PPO       | 1  | 2         | ✅           | 8192      | N/A        | `qwen2_7b_gsm8k_8gpu_min.sh`           | TBD                 | TBD         | [Run #3](https://wandb.ai/xianzhong/verl_qwen2_7b_gsm8k)                  | Balanced config                                                    |
+| #4     | Qwen2-7B         | PPO       | 2  | 5         | ✅           | 12000     | N/A        | `qwen2_7b_gsm8k_8gpu_recommended.sh`   | TBD                 | TBD         | [Run #4](https://wandb.ai/xianzhong/verl_qwen2_7b_gsm8k)                  | Best throughput, preferred                                         |
 
 📌 See `plots/throughput_vs_rollout.png` for visual comparison.
 
