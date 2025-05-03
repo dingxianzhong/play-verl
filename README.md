@@ -30,6 +30,7 @@ play-verl/
 │
 ├── wandb_logs/
 │   └── ...                                     # screenshots or exports from WandB
+├── logs/                    # Training logs (e.g., verl_qwen2_7b_min.log)
 │
 ├── plots/
 │   └── throughput_vs_rollout.png              # comparison plots (tokens/s, memory)
